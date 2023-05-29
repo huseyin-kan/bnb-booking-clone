@@ -1,0 +1,24 @@
+# Dependencies
+/node_modules
+
+# Build outputs
+/build
+/dist
+
+# Environment variables
+.env
+
+# IDE / Editor specific files
+.vscode
+.idea
+*.iml
+
+# Testing
+/coverage
+
+# Logs
+/logs
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
