@@ -12,8 +12,6 @@ export default function PlacesPages() {
       setPlaces(data)
     })
   },[])
-
-
   return (
     <div>
       <AccountNav/>

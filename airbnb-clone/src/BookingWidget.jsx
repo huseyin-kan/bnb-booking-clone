@@ -15,14 +15,11 @@ export default function BookingWidget({place}){
     const {user} = useContext(UserContext)
 
     let numberOfDays = 0
-
     useEffect(() => {
         if(user){
             setName(user.name)
         }
     }, [user])
-    
-
     async function bookThisPlace(){
         const response = await axios.post('/bookings',{
             checkIn,checkOut,numberOfGuests,name,phone,
@@ -32,15 +29,12 @@ export default function BookingWidget({place}){
         const bookingId = response.data._id
         setRedirect(`/account/bookings/${bookingId}`)
     }
-
     if(redirect){
         return <Navigate to={redirect}/>
     }
-
     if(checkIn && checkOut){
         numberOfDays = differenceInCalendarDays(new Date(checkOut),new Date(checkIn))
     }
-
     return(
         <div>
         <div className="shadow shadow-sm shadow-black p-4 rounded-2xl">

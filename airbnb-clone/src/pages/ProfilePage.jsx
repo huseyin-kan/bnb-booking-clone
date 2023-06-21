@@ -10,29 +10,23 @@ export default function ProfilePage() {
   const { ready, user, setUser } = useContext(UserContext);
   const [redirect, setRedirect] = useState(null);
   let { subpage } = useParams();
-
   if (subpage === undefined) {
     subpage = "profile";
   }
-
   async function logout() {
     await axios.post("/logout");
     setRedirect("/");
     setUser(null);
   }
-
   if (!ready) {
     return "Loading...";
   }
   if (ready && !user && !redirect) {
     return <Navigate to={"/login"} />;
   }
-
-
   if (redirect) {
     return <Navigate to={redirect} />;
   }
-
   return (
     <div>
       <AccountNav/>
